@@ -1,0 +1,35 @@
+@import './styles/utils.scss';
+
+.box {
+  display: inline-block;
+  width: $size;
+  height: $size;
+  border: 1px solid black;
+  position: fixed;
+  /* 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  */
+  // 박스를 화면 가운데로 위치시키는 위의 코드를 믹스인을 이용해서 호출한다.
+  @include place-at-center();
+
+  // '&' --> 현재 선택자 참조 기능
+  &.blue {
+    background: blue;
+  }
+
+  &:hover {
+    background: yellow;
+  }
+
+  &:active {
+    background: red;
+  }
+
+  .box-inside {
+    background: black;
+    width: 50px;
+    height: 50px;
+  }
+}

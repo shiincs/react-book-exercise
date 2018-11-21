@@ -44,7 +44,12 @@ const getStyleLoaders = (cssOptions, preProcessor) => {
     require.resolve('style-loader'),
     {
       loader: require.resolve('css-loader'),
-      options: cssOptions,
+      options: {
+        cssOptions,
+        // CSS Module 설정시, sass-loader 설정과 충돌나기 때문에 설정을 제거해줘야 한다.
+        // modules: true,
+        // localIdentName: '[path][name]__[local]--[hash:base64:5]'
+      }
     },
     {
       // Options for PostCSS as we reference these options twice
@@ -66,6 +71,13 @@ const getStyleLoaders = (cssOptions, preProcessor) => {
         ],
       },
     },
+    {
+      loader: require.resolve('sass-loader'),
+      options: {
+        // includePaths 옵션은 현재 작동하지 않는 상태다.
+        // includePaths: [paths.styles]
+      }
+    }
   ];
   if (preProcessor) {
     loaders.push(require.resolve(preProcessor));
