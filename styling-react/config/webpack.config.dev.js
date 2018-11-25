@@ -75,7 +75,7 @@ const getStyleLoaders = (cssOptions, preProcessor) => {
       loader: require.resolve('sass-loader'),
       options: {
         // includePaths 옵션은 현재 작동하지 않는 상태다.
-        // includePaths: [paths.styles]
+        includePaths: [paths.styles]
       }
     }
   ];

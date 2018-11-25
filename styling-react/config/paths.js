@@ -83,7 +83,7 @@ module.exports = {
   publicUrl: getPublicUrl(resolveApp('package.json')),
   servedPath: getServedPath(resolveApp('package.json')),
   // path 설정이 작동하는지도 의문
-  // styles: resolveApp('src/styles')
+  styles: resolveApp('src/styles')
 };
 
 
